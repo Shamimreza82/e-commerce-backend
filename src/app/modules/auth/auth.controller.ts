@@ -1,3 +1,4 @@
+
 import catchAsync from "../../utils/catchAsync"
 import sendResponse from "../../utils/sendResponse";
 
@@ -5,12 +6,15 @@ import sendResponse from "../../utils/sendResponse";
 
 
 
-const register = catchAsync(async(req, res) => {
+const register = catchAsync(async (req, res) => {
 
-sendResponse(res, {
-    statusCode: 200,
+  const user = req.body;
+
+
+  sendResponse(res, {
     success: true,
     message: 'Users create successfully',
+    statusCode: 201,
     data: {},
   });
 })
@@ -20,5 +24,5 @@ sendResponse(res, {
 
 
 export const AuthController = {
-       register 
+  register
 }

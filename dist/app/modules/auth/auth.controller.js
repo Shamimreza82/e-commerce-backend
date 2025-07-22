@@ -16,10 +16,11 @@ exports.AuthController = void 0;
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const register = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.body;
     (0, sendResponse_1.default)(res, {
-        statusCode: 200,
         success: true,
         message: 'Users create successfully',
+        statusCode: 201,
         data: {},
     });
 }));
