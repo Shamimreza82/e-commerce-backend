@@ -10,10 +10,10 @@ const router = (0, express_1.default)();
 const routers = [
     {
         path: '/auth',
-        handler: auth_route_1.AuthRouter
+        handler: auth_route_1.AuthRouter,
     },
 ];
-routers.forEach(route => {
+routers.forEach((route) => {
     router.use(route.path, route.handler);
 });
 exports.RootRouter = router;

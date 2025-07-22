@@ -15,15 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
+const auth_services_1 = require("./auth.services");
 const register = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.body;
+    const result = yield auth_services_1.AuthServices.register(user);
     (0, sendResponse_1.default)(res, {
         success: true,
         message: 'Users create successfully',
         statusCode: 201,
-        data: {},
+        data: result,
     });
 }));
 exports.AuthController = {
-    register
+    register,
 };

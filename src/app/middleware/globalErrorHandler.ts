@@ -10,21 +10,11 @@ export function globalErrorHandler(
 ) {
   console.error(err);
 
-
-
-
-
-
-  res
-    .status(err.statusCode ?? 500)
-    .json(
-      {
-        success: false,
-        message: err.message ?? 'Internal Server Error',
-        error: err ?? 'Something went wrong',
-        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
-      }
-    );
-
+  res.status(err.statusCode ?? 500).json({
+    success: false,
+    message: err.message ?? 'Internal Server Error',
+    error: err ?? 'Something went wrong',
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+  });
 }
-// 
+//
